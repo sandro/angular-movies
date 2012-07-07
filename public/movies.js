@@ -12,7 +12,6 @@ var avengers = new Movie('The Avengers', 207438708, 538116000);
 var harryPotter = new Movie('Harry Potter and the Deathly Hallows Part 2', 169189427, 381011219);
 
 function moviesController($scope, state) {
-  console.log('moviescontroller');
   $scope.state = state;
 }
 
