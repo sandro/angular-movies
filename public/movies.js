@@ -29,8 +29,12 @@ function newMovieController($scope, state, $location) {
   }
 }
 
-function movieController($scope, state, $routeParams) {
+function movieController($scope, state, $routeParams, $location) {
   $scope.movie = state.findMovieBySlug($routeParams['slug']);
+  $scope.delete = function() {
+    state['movies'].splice(state['movies'].indexOf($scope.movie, 1));
+    $location.path('/');
+  }
 }
 
 var module = angular.module('movieApp', [], function($routeProvider, $locationProvider) {
