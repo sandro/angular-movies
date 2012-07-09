@@ -1,0 +1,29 @@
+<!doctype html>
+<html ng-app="movieApp">
+  <head>
+    <script src="/angular-1.0.0.js"></script>
+    <script src="/jquery.js"></script>
+    <script src="/movies.js"></script>
+    <style type="text/css">
+      #list div { width: 500px; margin-bottom: 15px; }
+      #list dt {  width: 200px; float: left; }
+      #list dd { width: 300px; float: left;margin-left: 0}
+      p { margin: 15px 0; }
+      label { display: block }
+      input.ng-dirty.ng-invalid { border: 1px solid red; }
+      .error { color: red }
+      a,a:visited { color: blue; text-decoration:none; }
+      a:hover { text-decoration: underline; }
+      a:active { background: #eee; }
+
+      .clear { clear: both }
+      .clear:after { content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0; }
+    </style>
+  </head>
+  <body>
+    <div ng-view></div>
+    <script type="text/javascript">
+      App.init(<%= JSON.dump(movies: @movies) %>);
+    </script>
+  </body>
+</html>

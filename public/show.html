@@ -1,0 +1,13 @@
+<h1>{{movie.name}}</h1>
+<dl id="list" class="clear">
+  <div>
+    <dt>Opening Weekend</dt>
+    <dd>{{movie.openingWeekend | currency}}</dd>
+    <dt>Total gross</dt>
+    <dd>{{movie.totalGross | currency}}</dd>
+    <dt>Percentage of total</dt>
+    <dd>{{movie.percentageOfTotal()}}%</dd>
+  </div>
+</dl>
+<p><a href="/">Back to list</a></p>
+<p><a ng-click="delete()" href="">Delete</a></p>

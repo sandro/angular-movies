@@ -1,0 +1,32 @@
+<h1>Top Opening Weekends</h1>
+<dl ng-show="movies.length" id="list" class="clear">
+  <div ng-repeat="movie in movies" class="clear" fade-in>
+    <dt>Name</dt>
+    <dd><a ng-href="{{movie.slug()}}">{{movie.name}}</a></dd>
+    <dt>Opening Weekend</dt>
+    <dd>{{movie.openingWeekend | currency}}</dd>
+  </div>
+</dl>
+<p ng-hide="newMovie">
+<a href="/new">New movie</a>
+</p>
+<p ng-show="!movies.length">
+<a ng-click="populate()" href="">Populate</a>
+</p>
+<form name="form" ng-show="newMovie" ng-submit="submit()">
+  <p ng-show"form.$error.base" class='error'>{{form.$error.base}}</p>
+  <label>Name
+    <input name="name" type="text" required ng-model="newMovie.name" />
+    <span class='error' ng-show="form.name.$error.required">*</span>
+  </label>
+  <label>Opening Weekend
+    <input name="openingWeekend" type="number" required min="0" ng-model="newMovie.openingWeekend" />
+    <span class='error' ng-show="form.openingWeekend.$error.required">*</span>
+  </label>
+  <label>Total Gross
+    <input name="totalGross" type="number" required min="0" ng-model="newMovie.totalGross" />
+    <span class='error' ng-show="form.totalGross.$error.required">*</span>
+  </label>
+  <input type="submit" value="Submit"/>
+  <a href="/">Cancel</a>
+</form>
