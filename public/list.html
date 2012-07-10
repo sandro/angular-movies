@@ -16,7 +16,7 @@
 <form name="form" ng-show="newMovie" ng-submit="submit()">
   <p ng-show"form.$error.base" class='error'>{{form.$error.base}}</p>
   <label>Name
-    <input name="name" type="text" required ng-model="newMovie.name" />
+    <input autofocus name="name" type="text" required ng-model="newMovie.name" />
     <span class='error' ng-show="form.name.$error.required">*</span>
   </label>
   <label>Opening Weekend

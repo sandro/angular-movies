@@ -1,7 +1,8 @@
 window.App = new function() {
   this.movies = [];
   this.init = function(data) {
-    this.movies = this.getMovies(data['movies']);
+    this.movies.splice(0, this.movies.length);
+    this.movies.push.apply(this.movies, this.getMovies(data['movies']));
   }
   this.getMovies = function(json) {
     var movies = [];
@@ -44,7 +45,6 @@ function moviesController($scope, $routeParams, $location, $http) {
   $scope.populate = function() {
     $http.post('/populate').success(function(data) {
       App.init(data);
-      $scope.movies = App.movies;
     });
   }
   if ($location.path() == '/new') {
